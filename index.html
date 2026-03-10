@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Mamá - De Gabo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Parisienne&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-fondo: #fdf0f0;    /* Rosa pálido muy suave */
+            --color-tarjetas: #ffffff; /* Blanco puro */
+            --color-acento: #e6b3b3;    /* Rosa pastel */
+            --color-texto: #5d4037;     /* Marrón café suave */
+            --color-dorado: #d4af37;    /* Dorado elegante */
+            --fuente-elegante: 'Parisienne', cursive;
+            --fuente-normal: 'Open Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-normal);
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* --- CABECERA --- */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: white;
+            border-bottom: 3px solid var(--color-dorado);
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            font-family: var(--fuente-elegante);
+            font-size: 3.5rem;
+            color: var(--color-acento);
+        }
+
+        /* --- SECCIÓN INTRODUCCIÓN --- */
+        .seccion-intro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .foto-perfil {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            object-fit: cover; /* Ajuste inteligente */
+            object-position: center; /* Centra la cara */
+            margin-bottom: 20px;
+        }
+
+        .seccion-intro h2 {
+            font-family: var(--fuente-elegante);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- LÍNEA DEL TIEMPO (NUESTRA HISTORIA) --- */
+        .timeline {
+            position: relative;
+            margin: 50px 0;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--color-dorado);
+            border-style: dotted;
+        }
+
+        .evento {
+            position: relative;
+            margin-bottom: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--color-acento);
+        }
+
+        .evento::after {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background: var(--color-dorado);
+            border-radius: 50%;
+            border: 3px solid var(--color-fondo);
+        }
+
+        .foto-evento {
+            width: 100%;
+            height: 250px;
+            object-fit: cover; /* Ajuste inteligente */
+            object-position: center; /* Centra el contenido */
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .evento h3 {
+            font-family: var(--fuente-elegante);
+            font-size: 1.8rem;
+            color: var(--color-acento);
+            margin-bottom: 8px;
+        }
+
+        /* --- LA CARTA --- */
+        .carta-contenedor {
+            background-color: #fff9f2; /* Estilo papel antiguo */
+            padding: 40px 25px;
+            border-radius: 20px;
+            border: 1px solid #e0d0b0;
+            box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.05);
+            margin: 50px 0;
+        }
+
+        .carta-contenedor h2 {
+            text-align: center;
+            font-family: var(--fuente-elegante);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--color-texto);
+        }
+
+        .carta-texto {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .firma {
+            margin-top: 30px;
+            text-align: right;
+            font-family: var(--fuente-elegante);
+            font-size: 2.5rem;
+            color: var(--color-acento);
+        }
+
+        /* --- GALERÍA FINAL --- */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 50px; /* Más espacio abajo */
+        }
+
+        .foto-galeria {
+            width: 100%;
+            height: 160px;
+            object-fit: cover; /* Ajuste inteligente */
+            object-position: center; /* Centra el contenido */
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #a08080;
+            background-color: white; /* Fondo blanco para el footer */
+            border-top: 1px solid #eee;
+            margin-top: auto; /* Empuja el footer al final */
+        }
+
+        .corazon-animado {
+            display: inline-block;
+            color: red;
+            animation: latido 1.2s infinite;
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Para mi Mamá</h1>
+        <p>Con todo el amor de tu hijo</p>
+    </header>
+
+    <div class="contenedor">
+
+        <section class="seccion-intro">
+            <img src="imagenes/perfil.jpg" alt="Mamá" class="foto-perfil">
+            <h2>Hola, mami...</h2>
+            <p>Hice este pequeño rincón en internet solo para ti. Espero que te guste esta sorpresa que preparé con mucho cariño.</p>
+        </section>
+
+        <h2 style="text-align: center; margin-top: 50px; font-family: 'Parisienne'; font-size: 2.5rem;">Nuestra Historia</h2>
+        
+        <div class="timeline">
+            
+            <div class="evento">
+                <img src="imagenes/nacimiento.jpg" alt="Cuando nací" class="foto-evento">
+                <h3>El día que nací</h3>
+                <p>Ese día nos conocimos y cambió mi vida para siempre. Gracias por recibirme con tanto amor y por darme la oportunidad de ser tu hijo.</p>
+            </div>
+
+            <div class="evento">
+                <img src="imagenes/chiquito.jpg" alt="Cuando era pequeño" class="foto-evento">
+                <h3>Mis primeros años</h3>
+                <p>Tantos recuerdos, risas y cuidados. Siempre estuviste ahí para levantarme cuando me caía y para enseñarme a ser una mejor persona.</p>
+            </div>
+
+            <div class="evento">
+                <img src="imagenes/actual.jpg" alt="Hoy en día" class="foto-evento">
+                <h3>Hoy y siempre</h3>
+                <p>Aunque ya pasaron los años, sigo siendo tu pequeño. Gracias por seguir siendo mi guía y mi mayor apoyo en todo lo que hago.</p>
+            </div>
+
+        </div>
+
+        <section class="carta-contenedor">
+            <h2>Carta de Gabo</h2>
+            <div class="carta-texto">
+                <p>Querida Mamá,</p>
+                <br>
+                <p>Quería regalarte algo diferente este año. No soy un experto programando, pero aprendí a crear esta página solo para decirte lo importante que eres para mí.</p>
+                <p>Gracias por tu paciencia infinita, por tus consejos que siempre llegan en el momento justo y por amarme de la forma en que lo haces. Eres la mujer más valiente y admirable que conozco.</p>
+                <p>Espero que cada vez que entres aquí, recuerdes lo mucho que te amo y lo orgulloso que estoy de ser tu hijo.</p>
+                <p class="firma">Con amor, <br>Gabo</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="text-align: center; font-family: 'Parisienne'; font-size: 2.5rem;">Más momentos juntos</h2>
+            <div class="galeria-grid">
+                <img src="imagenes/galeria1.jpg" alt="Momento 1" class="foto-galeria">
+                <img src="imagenes/galeria2.jpg" alt="Momento 2" class="foto-galeria">
+                <img src="imagenes/galeria3.jpg" alt="Momento 3" class="foto-galeria">
+                <img src="imagenes/galeria4.jpg" alt="Momento 4" class="foto-galeria">
+            </div>
+        </section>
+
+    </div> <footer>
+        <p>Hecho con <span class="corazon-animado">❤</span> por Gabo, 2026</p>
+    </footer>
+
+</body>
+</html>
